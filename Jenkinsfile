@@ -18,5 +18,10 @@ pipeline {
                 }
             }
         }
+        stage('Sonar') {
+            steps {
+                sh "mvn sonar:sonar -Dsonar.host.url=http://$(boot2docker ip):9000"
+            }
+        }
     }
 }
